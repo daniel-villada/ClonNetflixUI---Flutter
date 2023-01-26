@@ -1,7 +1,4 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:myapp/components/hero/main_cartel.dart';
 import 'package:myapp/components/listRounded/item_rounded.dart';
 import 'package:myapp/components/list_squared/ListSquared.dart';
@@ -11,33 +8,33 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF000000),
-        body: ListView(
-          children: <Widget>[
-            MainCartel(),
-            this.horizontalList("Newest", ItemRounded(), 8),
-            SizedBox(height: 10.0,),
-            this.horizontalList("Trendind Now", listSquared(), 8),
-          ],
-        ),
-        bottomNavigationBar: this.ButtonNav(),
-        );
+      backgroundColor: Color(0xFF000000),
+      body: ListView(
+        children: <Widget>[
+          MainCartel(),
+          this.horizontalList("Newest", ItemRounded(), 8),
+          SizedBox(
+            height: 10.0,
+          ),
+          this.horizontalList("Trendind Now", listSquared(), 8),
+        ],
+      ),
+      bottomNavigationBar: this.ButtonNav(),
+    );
   }
 
-  BottomNavigationBar ButtonNav(){
+  BottomNavigationBar ButtonNav() {
     return BottomNavigationBar(
       backgroundColor: Colors.black,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.white30,
+      type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: "Home"
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: "Home"
-        )
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+        BottomNavigationBarItem(icon: Icon(Icons.library_music), label: "in comming"),
+        BottomNavigationBarItem(icon: Icon(Icons.download_rounded), label: "Downloads"),
+        BottomNavigationBarItem(icon: Icon(Icons.more_horiz_rounded), label: "More"),
       ],
     );
   }
